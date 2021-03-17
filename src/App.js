@@ -21,7 +21,7 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setGists(data);
+        if (Array.isArray(data)) setGists(data);
       })
       .catch((error) => {
         console.error("API call failed. " + error);
@@ -38,6 +38,8 @@ const App = () => {
     }
     setUserName(e.target.value);
   };
+
+  console.log(gists);
 
   return (
     <div className={classes.root}>

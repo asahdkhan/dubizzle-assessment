@@ -18,7 +18,7 @@ const GistItem = ({ item }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setForks(data);
+        if (Array.isArray(data)) setForks(data);
       })
       .catch((error) => {
         console.error("API call failed. " + error);
